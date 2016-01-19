@@ -11,27 +11,32 @@ gulp.task('copy-html', () => (
 ));
 
 gulp.task('compile-css', () => (
-    src('src/css/app.css')
+    src('src/css/index.css')
         .pipe(concatCss('app.bundle.css'))
         .pipe(dest('dist'))
 ));
 
 gulp.task('compile-js', () => (
-    src('src/js/app.js')
+    src('src/js/containers/index.js')
         .pipe(webpack({
-            entry: {
-                app: './src/js/app.js'
-            },
             output: {
-                filename: '[name].bundle.js'
+                filename: 'app.bundle.js'
             },
             module: {
-              loaders: [
-                { test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader"}
-              ]
+                loaders: [{
+                    test: /\.jsx?$/,
+                    exclude: /node_modules/,
+                    loader: 'babel-loader'
+                }]
             }
         }))
         .pipe(dest('dist'))
 ));
+
+gulp.task('watch', () => {
+    gulp.watch('src/*.html', ['copy-html']);
+    gulp.watch('src/css/**/*.css', ['compile.css']);
+    gulp.watch('src/js/**/*.jsx', ['compile-js']);
+});
 
 gulp.task('default', ['copy-html', 'compile-css', 'compile-js']);
