@@ -2,7 +2,7 @@
   "name": "nd802-meet-up-event-planner",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "0.14.6",
     "react-dom": "0.14.6",
+    "react-redux": "4.0.6",
     "redux": "3.0.5"
   },
   "devDependencies": {

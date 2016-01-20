@@ -17,7 +17,7 @@ gulp.task('compile-css', () => (
 ));
 
 gulp.task('compile-js', () => (
-    src('src/js/containers/index.js')
+    src('src/js/index.js')
         .pipe(webpack({
             output: {
                 filename: 'app.bundle.js'
@@ -35,7 +35,7 @@ gulp.task('compile-js', () => (
 
 gulp.task('watch', () => {
     gulp.watch('src/*.html', ['copy-html']);
-    gulp.watch('src/css/**/*.css', ['compile.css']);
+    gulp.watch('src/css/**/*.css', ['compile-css']);
     gulp.watch('src/js/**/*.jsx', ['compile-js']);
 });
 
