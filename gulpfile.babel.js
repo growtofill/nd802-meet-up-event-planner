@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import concatCss from 'gulp-concat-css';
-import babel from 'gulp-babel';
 import webpack from 'webpack-stream';
 
 let { src, dest } = gulp;

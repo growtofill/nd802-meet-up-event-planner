@@ -3,5 +3,15 @@ const initialState = {
 };
 
 export default function todoApp(state = initialState, action) {
-    return state;
+    switch (action.type) {
+        case 'ADD_EVENT':
+            return Object.assign({}, state, {
+                events: [
+                    ...state.events,
+                    { name: action.name }
+                ]
+            });
+        default:
+            return state;
+    }
 }
