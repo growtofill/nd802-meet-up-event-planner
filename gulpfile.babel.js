@@ -15,7 +15,7 @@ gulp.task('compile-css', () => (
         .pipe(dest('dist'))
 ));
 
-gulp.task('compile-js', () => (
+gulp.task('compile-js', done => (
     src('src/js/index.js')
         .pipe(webpack({
             output: {
@@ -29,6 +29,7 @@ gulp.task('compile-js', () => (
                 }]
             }
         }))
+        .on('error', done)
         .pipe(dest('dist'))
 ));
 

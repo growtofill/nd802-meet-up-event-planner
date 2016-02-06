@@ -1,1 +1,2 @@
-@import './components/EventList.css';
+@import './base.css';
+@import './components/App.css';

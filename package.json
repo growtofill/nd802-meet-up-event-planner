@@ -5,7 +5,8 @@
   "main": "src/js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "cd dist && python -m SimpleHTTPServer"
+    "server": "cd dist && python -m SimpleHTTPServer",
+    "watch": "gulp watch"
   },
   "author": "Pavlo Mykhalov <pmykhalov@gmail.com>",
   "license": "GPL-3.0",

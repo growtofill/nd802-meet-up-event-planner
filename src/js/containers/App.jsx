@@ -11,7 +11,7 @@ class App extends React.Component {
 
         return (
             <div>
-                <AddEvent onEventAdd={name => dispatch(addEvent(name))} />
+                <AddEvent onEventAdd={event => dispatch(addEvent(event.name))} />
                 <EventList events={events}/>
             </div>
         );
