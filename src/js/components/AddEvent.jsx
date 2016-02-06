@@ -4,7 +4,6 @@ export default class AddEvent extends React.Component {
     render() {
         return (
             <form className="AddEvent" ref="root" onSubmit={e => this.onSubmit(e)}>
-                <h1 className="AddEvent-header">Add event</h1>
                 <label className="AddEvent-field">
                     <span className="AddEvent-field-label">Name</span>
                     <input className="AddEvent-field-input" ref="name" required/>

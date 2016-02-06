@@ -4,3 +4,11 @@ export function addEvent(name) {
         name
     };
 }
+
+export function toggleAddEventForm(show) {
+    return {
+        type: show
+            ? 'SHOW_ADD_EVENT_FORM'
+            : 'HIDE_ADD_EVENT_FORM'
+    };
+}

@@ -1,5 +1,6 @@
 const initialState = {
-    events: []
+    events: [],
+    isAddEventFormVisible: true
 };
 
 export default function todoApp(state = initialState, action) {
@@ -10,6 +11,14 @@ export default function todoApp(state = initialState, action) {
                     ...state.events,
                     { name: action.name }
                 ]
+            });
+        case 'SHOW_ADD_EVENT_FORM':
+            return Object.assign({}, state, {
+                isAddEventFormVisible: true
+            });
+        case 'HIDE_ADD_EVENT_FORM':
+            return Object.assign({}, state, {
+                isAddEventFormVisible: false
             });
         default:
             return state;
