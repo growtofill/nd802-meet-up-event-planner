@@ -53,7 +53,7 @@ export default class AddEvent extends React.Component {
         let host = this.refs.host.value.trim();
         let startDate = this.refs.startDate.value.trim();
         let endDate = this.refs.endDate.value.trim();
-        let guests = this.refs.guests.value.trim();
+        let guests = [this.refs.guests.value.trim()];
         let location = this.refs.location.value.trim();
         let message = this.refs.message.value.trim();
 

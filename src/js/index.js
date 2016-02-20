@@ -7,10 +7,22 @@ import todoApp from './reducers';
 
 let store = createStore(todoApp, {
     events: [
-        { name: 'Meeting' },
-        { name: 'Party' },
-        { name: 'Dinner' }
-    ]
+        {
+            name: `Helen's Birthday`,
+            type: 'Birthday party',
+            host: 'Jane Miller',
+            startDate: '',
+            endDate: '',
+            guests: [
+                'Bob Bolton',
+                'Jinny James',
+                'Susy Sullivan'
+            ],
+            location: '22 Jump Street',
+            message: `Please don't be late`
+        }
+    ],
+    isAddEventFormVisible: false
 });
 
 document.addEventListener('DOMContentLoaded', () => {

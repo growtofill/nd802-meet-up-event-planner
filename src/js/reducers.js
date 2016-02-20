@@ -9,7 +9,8 @@ export default function todoApp(state = initialState, action) {
             return Object.assign({}, state, {
                 events: [
                     ...state.events,
-                    { name: action.name }
+                    // FIXME
+                    action.event
                 ]
             });
         case 'SHOW_ADD_EVENT_FORM':

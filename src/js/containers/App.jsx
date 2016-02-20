@@ -17,10 +17,10 @@ class App extends React.Component {
                             className="App-button"
                             onClick={() => dispatch(toggleAddEventForm(!isAddEventFormVisible))}
                             >
-                            Add event…
+                            Add event ▼
                         </button>
                         {isAddEventFormVisible
-                            ? <AddEvent onEventAdd={e => dispatch(addEvent(e.name))} />
+                            ? <AddEvent onEventAdd={e => dispatch(addEvent(e))} />
                             : null}
                     </div>
                 </div>

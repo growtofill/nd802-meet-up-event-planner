@@ -36,7 +36,7 @@ gulp.task('compile-js', done => (
 gulp.task('watch', () => {
     gulp.watch('src/*.html', ['copy-html']);
     gulp.watch('src/css/**/*.css', ['compile-css']);
-    gulp.watch('src/js/**/*.jsx', ['compile-js']);
+    gulp.watch('src/js/**/*.{js,jsx}', ['compile-js']);
 });
 
 gulp.task('default', ['copy-html', 'compile-css', 'compile-js']);

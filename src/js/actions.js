@@ -1,7 +1,7 @@
-export function addEvent(name) {
+export function addEvent(event) {
     return {
         type: 'ADD_EVENT',
-        name
+        event
     };
 }
 
