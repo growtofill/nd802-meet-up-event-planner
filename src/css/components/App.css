@@ -1,20 +1,6 @@
-@import './EventList.css';
-@import './AddEvent.css';
+@import 'components/Login.css';
+@import 'components/Planner.css';
 
-.App-panel {
-    padding: 5px 0;
-    background: #eee;
-}
-.App-panel-content {
-    position: relative;
-
-    max-width: 940px;
-    margin: 0 auto;
-}
-.App-button {
-    margin: 0;
-    padding: 9px;
-    border: none;
-
-    font-size: inherit;
+.App {
+    height: 100%;
 }

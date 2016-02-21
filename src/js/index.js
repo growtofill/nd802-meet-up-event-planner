@@ -6,6 +6,7 @@ import App from './containers/App.jsx';
 import todoApp from './reducers';
 
 let store = createStore(todoApp, {
+    loggedInAs: '',
     events: [
         {
             name: `Helen's Birthday`,

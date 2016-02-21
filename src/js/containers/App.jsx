@@ -1,30 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addEvent, toggleAddEventForm } from '../actions';
+import { login } from '../actions.js';
 
-import EventList from '../components/EventList.jsx';
-import AddEvent from '../components/AddEvent.jsx';
+import Planner from '../containers/Planner.jsx';
+import Login from '../components/Login.jsx';
 
-class App extends React.Component {
+export default class App extends Component {
     render() {
-        let { dispatch, events, isAddEventFormVisible } = this.props;
+        let { loggedInAs, onUserLogin } = this.props;
 
         return (
-            <div>
-                <div className="App-panel">
-                    <div className="App-panel-content">
-                        <button
-                            className="App-button"
-                            onClick={() => dispatch(toggleAddEventForm(!isAddEventFormVisible))}
-                            >
-                            Add event ▼
-                        </button>
-                        {isAddEventFormVisible
-                            ? <AddEvent onEventAdd={e => dispatch(addEvent(e))} />
-                            : null}
-                    </div>
-                </div>
-                <EventList events={events}/>
+            <div className="App">
+                {loggedInAs ? <Planner/> : <Login onUserLogin={onUserLogin}/>}
             </div>
         );
     }
@@ -32,9 +19,16 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        events: state.events,
-        isAddEventFormVisible: state.isAddEventFormVisible
-    };
+        loggedInAs: state.loggedInAs
+    }
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+    return {
+        onUserLogin: email => {
+            dispatch(login(email))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

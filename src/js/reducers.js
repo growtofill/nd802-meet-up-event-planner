@@ -21,6 +21,10 @@ export default function todoApp(state = initialState, action) {
             return Object.assign({}, state, {
                 isAddEventFormVisible: false
             });
+        case 'LOGIN':
+            return Object.assign({}, state, {
+                loggedInAs: action.email
+            });
         default:
             return state;
     }

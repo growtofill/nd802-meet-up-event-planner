@@ -1,0 +1,20 @@
+@import './EventList.css';
+@import './AddEvent.css';
+
+.Planner-panel {
+    padding: 5px 0;
+    background: #eee;
+}
+.Planner-panel-content {
+    position: relative;
+
+    max-width: 940px;
+    margin: 0 auto;
+}
+.Planner-button {
+    margin: 0;
+    padding: 9px;
+    border: none;
+
+    font-size: inherit;
+}

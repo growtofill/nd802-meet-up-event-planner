@@ -12,3 +12,10 @@ export function toggleAddEventForm(show) {
             : 'HIDE_ADD_EVENT_FORM'
     };
 }
+
+export function login(email) {
+    return {
+        type: 'LOGIN',
+        email
+    }
+}
