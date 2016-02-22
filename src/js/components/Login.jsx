@@ -16,6 +16,9 @@ export default class Login extends Component {
             isRequirementsMatch: false
         };
     }
+    componentDidMount() {
+        this.refs.name.focus();
+    }
     render() {
         let {
             passwordLength,
@@ -26,7 +29,7 @@ export default class Login extends Component {
             <form className="Login" action="." method="POST" onSubmit={e => this.onSubmit(e)} ref="root">
                 <label className="Login-field">
                     <span className="Login-field-label">Name</span>
-                    <input type="text" className="Login-field-input" autoComplete="name" required/>
+                    <input type="text" className="Login-field-input" ref="name" autoComplete="name" required/>
                 </label>
                 <label className="Login-field">
                     <span className="Login-field-label">Email</span>

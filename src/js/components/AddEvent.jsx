@@ -1,6 +1,9 @@
 import React from 'react';
 
 export default class AddEvent extends React.Component {
+    componentDidMount() {
+        this.refs.name.focus();
+    }
     render() {
         return (
             <form className="AddEvent" ref="root" onSubmit={e => this.onSubmit(e)}>
