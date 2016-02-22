@@ -18,11 +18,11 @@ export default class AddEvent extends React.Component {
                 </label>
                 <label className="AddEvent-field">
                     <span className="AddEvent-field-label">Start date</span>
-                    <input className="AddEvent-field-input" ref="startDate" required/>
+                    <input className="AddEvent-field-input" type="datetime-local" ref="startDate" required/>
                 </label>
                 <label className="AddEvent-field">
                     <span className="AddEvent-field-label">End date</span>
-                    <input className="AddEvent-field-input" ref="endDate" required/>
+                    <input className="AddEvent-field-input" type="datetime-local" ref="endDate" required/>
                 </label>
                 <label className="AddEvent-field">
                     <span className="AddEvent-field-label">Guest list</span>
