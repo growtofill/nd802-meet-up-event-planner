@@ -5,7 +5,7 @@
     padding: 5px 0;
     background: #eee;
 }
-.Planner-panel-content {
+.Planner-container {
     position: relative;
 
     max-width: 940px;
@@ -13,8 +13,17 @@
 }
 .Planner-button {
     margin: 0;
-    padding: 9px;
+    padding: 9px 18px;
     border: none;
 
+    background-color: #000;
+    color: #fff;
+
     font-size: inherit;
+}
+@media (max-width: 960px) {
+    .Planner-panel {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
 }

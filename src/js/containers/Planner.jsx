@@ -12,17 +12,19 @@ class Planner extends React.Component {
         return (
             <div>
                 <div className="Planner-panel">
-                    <div className="Planner-panel-content">
+                    <div className="Planner-container">
                         <button
                             className="Planner-button"
                             onClick={() => dispatch(toggleAddEventForm(!isAddEventFormVisible))}
                             >
-                            Add event ▼
+                            Add event ▾
                         </button>
-                        {isAddEventFormVisible
-                            ? <AddEvent onEventAdd={e => dispatch(addEvent(e))} />
-                            : null}
                     </div>
+                </div>
+                <div className="Planner-container">
+                    {isAddEventFormVisible
+                        ? <AddEvent onEventAdd={e => dispatch(addEvent(e))} />
+                        : null}
                 </div>
                 <EventList events={events}/>
             </div>

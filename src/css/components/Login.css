@@ -48,3 +48,17 @@
 .Login-field-progress--invalid {
     background: red;
 }
+@media (max-width: 960px) {
+    .Login-field {
+        width: 100%;
+        padding: 0 18px;
+        flex-direction: column;
+    }
+    .Login-field-label {
+        margin: 0 0 5px;
+        text-align: left;
+    }
+    .Login-field-input {
+        width: auto;
+    }
+}

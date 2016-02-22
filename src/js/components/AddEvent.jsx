@@ -43,7 +43,7 @@ export default class AddEvent extends React.Component {
                         ref="message"
                     ></textarea>
                 </label>
-                <button>Add</button>
+                <button className="AddEvent-button">Add</button>
             </form>
         );
     }

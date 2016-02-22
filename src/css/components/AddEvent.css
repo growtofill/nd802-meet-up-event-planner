@@ -29,3 +29,28 @@
     padding: 8px;
     resize: none;
 }
+.AddEvent-button {
+    padding: 9px 18px;
+    border: none;
+
+    background-color: #000000;
+    color: #fff;
+
+    font-size: inherit;
+}
+@media (max-width: 960px) {
+    .AddEvent {
+        position: static;
+    }
+    .AddEvent-field {
+        flex-direction: column;
+    }
+    .AddEvent-field-label {
+        width: 100%;
+        margin: 0 0 5px;
+        text-align: left;
+    }
+    .AddEvent-field-input {
+        width: 100%;
+    }
+}
