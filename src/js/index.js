@@ -4,25 +4,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './containers/App.jsx';
 import todoApp from './reducers';
+import event from './fixtures/event';
 
 let store = createStore(todoApp, {
     loggedInAs: '',
-    events: [
-        {
-            name: `Helen's Birthday`,
-            type: 'Birthday party',
-            host: 'Jane Miller',
-            startDate: '',
-            endDate: '',
-            guests: [
-                'Bob Bolton',
-                'Jinny James',
-                'Susy Sullivan'
-            ],
-            location: '22 Jump Street',
-            message: `Please don't be late`
-        }
-    ],
+    events: [event],
     isAddEventFormVisible: false
 });
 
