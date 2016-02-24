@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Field from '../components/Field.jsx';
 
-export default class AddEvent extends React.Component {
+export default class AddEvent extends Component {
     componentDidMount() {
         this.refs.name.focus();
 
@@ -17,60 +18,29 @@ export default class AddEvent extends React.Component {
     render() {
         return (
             <form className="AddEvent" ref="root" onSubmit={e => this.onSubmit(e)}>
-                <label className="AddEvent-field">
-                    <span className="AddEvent-field-label">Name</span>
-                    <input className="AddEvent-field-input" ref="name" name="name" autoComplete="on" required/>
-                </label>
-                <label className="AddEvent-field">
-                    <span className="AddEvent-field-label">Type</span>
-                    <input className="AddEvent-field-input" ref="type" name="type" autoComplete="on" required/>
-                </label>
-                <label className="AddEvent-field">
-                    <span className="AddEvent-field-label">Host</span>
-                    <input className="AddEvent-field-input" ref="host" name="host" autoComplete="on" required/>
-                </label>
-                <label className="AddEvent-field">
-                    <span className="AddEvent-field-label">Start date</span>
-                    <input className="AddEvent-field-input" type="datetime-local" ref="startDate" name="startDate" autoComplete="on" required/>
-                </label>
-                <label className="AddEvent-field">
-                    <span className="AddEvent-field-label">End date</span>
-                    <input className="AddEvent-field-input" type="datetime-local" ref="endDate" name="endDate" autoComplete="on" required/>
-                </label>
-                <label className="AddEvent-field">
-                    <span className="AddEvent-field-label">Guest list</span>
-                    <textarea
-                        className="AddEvent-field-input AddEvent-field-input--multiLine"
-                        ref="guests"
-                        name="guests"
-                        autoComplete="on"
-                        required
-                    ></textarea>
-                </label>
-                <label className="AddEvent-field">
-                    <span className="AddEvent-field-label">Location</span>
-                    <input className="AddEvent-field-input" ref="location" name="location" autoComplete="on" required/>
-                </label>
-                <label className="AddEvent-field">
-                    <span className="AddEvent-field-label">Message to guests</span>
-                    <textarea
-                        className="AddEvent-field-input AddEvent-field-input--multiLine"
-                        ref="message"
-                    ></textarea>
-                </label>
+                <Field ref="name" label="Name"/>
+                <Field ref="type" label="Type"/>
+                <Field ref="host" label="Host"/>
+                <Field ref="startDate" label="Start date" type="datetime-local"/>
+                <Field ref="endDate" label="End date" type="datetime-local"/>
+                <Field ref="guests" label="Guest list" type="textarea">
+                    <small>New-line separated.</small>
+                </Field>
+                <Field ref="host" label="Host"/>
+                <Field ref="message" label="Message to guests" type="textarea" required="false"/>
                 <button className="AddEvent-button">Add</button>
             </form>
         );
     }
     onSubmit(e) {
-        let name = this.refs.name.value.trim();
-        let type = this.refs.type.value.trim();
-        let host = this.refs.host.value.trim();
-        let startDate = this.refs.startDate.value.trim();
-        let endDate = this.refs.endDate.value.trim();
-        let guests = [this.refs.guests.value.trim()];
-        let location = this.refs.location.value.trim();
-        let message = this.refs.message.value.trim();
+        let name = this.refs.name.getValue();
+        let type = this.refs.type.getValue();
+        let host = this.refs.host.getValue();
+        let startDate = this.refs.startDate.getValue();
+        let endDate = this.refs.endDate.getValue();
+        let guests = this.refs.guests.getValue().split`\n`;
+        let location = this.refs.location.getValue();
+        let message = this.refs.message.getValue();
 
         this.props.onEventAdd({
             name,

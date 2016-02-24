@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createElement } from 'react';
 
 export default class Field extends Component {
     constructor(props) {
@@ -19,6 +19,7 @@ export default class Field extends Component {
         let { validationMessage } = this.state;
         let classList = [
             'Field-container-input',
+            `Field-container-input--${type}`,
             validationMessage ? 'Field-container-input--invalid': ''
         ];
 
@@ -26,16 +27,19 @@ export default class Field extends Component {
             <label className="Field">
                 <div className="Field-label">{label}</div>
                 <div className="Field-container">
-                    <input
-                        ref="input"
-                        className={classList.join(' ')}
-                        type={type}
-                        autoComplete={autoComplete}
-                        required={required}
-                        onFocus={() => this.resetValidationMessage()}
-                        onBlur={() => this.setValidationMessage()}
-                        onChange={() => this.setCustomValidity()}
-                    />
+                    {createElement(
+                        type === 'textarea' ? 'textarea' : 'input',
+                        {
+                            ref: 'input',
+                            className: classList.join` `.trim(),
+                            type: type === 'textarea' ? null : type,
+                            autoComplete,
+                            required,
+                            onFocus: () => this.resetValidationMessage(),
+                            onBlur: () => this.setValidationMessage(),
+                            onChange: () => this.setCustomValidity()
+                        }
+                    )}
                     {
                         validationMessage
                             ? (
