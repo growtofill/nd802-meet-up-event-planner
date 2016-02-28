@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import Field from '../components/Field.jsx';
 
+const { Circle, places } = google.maps;
+const { Autocomplete } = places;
+
 export default class AddEvent extends Component {
     componentDidMount() {
-        this.refs.name.focus();
+        let { name } = this.refs;
 
-        this.state = {
-            nameValidationMessage: '',
-            typeValidationMessage: '',
-            hostValidationMessage: '',
-            startDateValidationMessage: '',
-            endDateValidationMessage: '',
-            guestListValidationMessage: '',
-            locationValidationMessage: ''
+        if (!navigator.geolocation) {
+            name.focus();
+            return;
         }
+
+        navigator.geolocation.getCurrentPosition(
+            ({ coords }) => {
+                this.coords = coords;
+                name.focus();
+            },
+            () => name.focus()
+        );
     }
     render() {
         return (
@@ -27,6 +33,14 @@ export default class AddEvent extends Component {
                     <small>New-line separated.</small>
                 </Field>
                 <Field ref="host" label="Host"/>
+                <Field
+                    ref="location"
+                    label="Location"
+                    autoComplete="off"
+                    placeholder="Start typing to see suggestions"
+                    onMount={refs => this.onLocationMount(refs)}
+                    onInputFocus={e => this.onLocationInputFocus(e)}
+                />
                 <Field ref="message" label="Message to guests" type="textarea" required="false"/>
                 <button className="AddEvent-button">Add</button>
             </form>
@@ -55,5 +69,26 @@ export default class AddEvent extends Component {
 
         this.refs.root.reset();
         e.preventDefault();
+    }
+    onLocationMount({ input }) {
+        this.autocomplete = new Autocomplete(
+            input,
+            { types: ['geocode'] }
+        );
+    }
+    onLocationInputFocus() {
+        if (!this.coords) return;
+
+        let { latitude, longitude, accuracy } = this.coords;
+        let center = {
+            lat: latitude,
+            lng: longitude
+        };
+        let circle = new Circle({
+            center,
+            radius: accuracy
+        });
+
+        this.autocomplete.setBounds(circle.getBounds());
     }
 }

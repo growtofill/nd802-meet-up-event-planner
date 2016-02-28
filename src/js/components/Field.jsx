@@ -8,13 +8,18 @@ export default class Field extends Component {
             validationMessage: ''
         };
     }
+    componentDidMount() {
+        this.props.onMount(this.refs);
+    }
     render() {
         let {
             label,
             type,
             children,
             autoComplete,
-            required
+            placeholder,
+            required,
+            onInputFocus
         } = this.props;
         let { validationMessage } = this.state;
         let classList = [
@@ -34,10 +39,14 @@ export default class Field extends Component {
                             className: classList.join` `.trim(),
                             type: type === 'textarea' ? null : type,
                             autoComplete,
+                            placeholder,
                             required,
-                            onFocus: () => this.resetValidationMessage(),
-                            onBlur: () => this.setValidationMessage(),
-                            onChange: () => this.setCustomValidity()
+                            onFocus: e => {
+                                this.resetValidationMessage(e);
+                                onInputFocus(e);
+                            },
+                            onBlur: e => this.setValidationMessage(e),
+                            onChange: e => this.setCustomValidity(e)
                         }
                     )}
                     {
@@ -87,5 +96,7 @@ export default class Field extends Component {
 Field.defaultProps = {
     type: 'text',
     autoComplete: 'on',
-    required: true
+    required: true,
+    onMount: () => {},
+    onInputFocus: () => {}
 };
