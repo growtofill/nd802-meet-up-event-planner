@@ -7,9 +7,7 @@ import todoApp from './reducers';
 import event from './fixtures/event';
 
 let store = createStore(todoApp, {
-    loggedInAs: 'me',
-    events: [event],
-    isAddEventFormVisible: false
+    events: [event]
 });
 
 document.addEventListener('DOMContentLoaded', () => {

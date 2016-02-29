@@ -1,4 +1,5 @@
 const initialState = {
+    loggedInAs: '',
     events: [],
     isAddEventFormVisible: true
 };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Field from '../components/field.jsx';
+import Field from '../components/Field.jsx';
 
 const requirements = [
     /\d/,
