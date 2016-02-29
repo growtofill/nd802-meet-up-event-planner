@@ -7,7 +7,7 @@ import todoApp from './reducers';
 import event from './fixtures/event';
 
 let store = createStore(todoApp, {
-    loggedInAs: '',
+    loggedInAs: 'me',
     events: [event],
     isAddEventFormVisible: false
 });

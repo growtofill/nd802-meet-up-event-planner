@@ -4,8 +4,8 @@ export default {
     name: 'Introduction to meet-up event planner',
     type: 'Presentation',
     host: 'You',
-    startDate: (new Date).toGMTString(),
-    endDate: (new Date(Date.now() + duration)).toGMTString(),
+    startDate: (new Date).toISOString(),
+    endDate: (new Date(Date.now() + duration)).toISOString(),
     guests: [
         'you',
         'your friends'

@@ -6,12 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "cd dist && python -m SimpleHTTPServer",
+    "build": "gulp",
     "watch": "gulp watch"
   },
   "author": "Pavlo Mykhalov <pmykhalov@gmail.com>",
   "license": "GPL-3.0",
   "private": true,
   "dependencies": {
+    "moment": "2.11.2",
     "react": "0.14.6",
     "react-dom": "0.14.6",
     "react-redux": "4.0.6",

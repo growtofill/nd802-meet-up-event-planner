@@ -2,4 +2,31 @@
     padding: 18px;
 
     background: #f7f7f7;
+    line-height: 1.2;
+}
+.Event-row {
+    display: flex;
+}
+.Event-row-col {
+    flex: 1;
+    padding: 0 18px;
+}
+.Event-map {
+    width: 100%;
+    height: 150px;
+    border: none;
+}
+.Event-section {
+    margin-bottom: 1em;
+}
+.Event-list {
+    margin-top: 0;
+}
+@media (max-width: 960px) {
+    .Event-row {
+        flex-direction: column;
+    }
+    .Event-col {
+        padding: 0;
+    }
 }
