@@ -8,11 +8,12 @@
 .Planner-container {
     position: relative;
 
+    display: flex;
     max-width: 940px;
     margin: 0 auto;
 }
 .Planner-button {
-    margin: 0;
+    margin: 0 auto 0 0;
     padding: 9px 18px;
     border: none;
 
@@ -22,6 +23,9 @@
     font-size: inherit;
 }
 @media (max-width: 960px) {
+    .Planner-container {
+        flex-direction: column;
+    }
     .Planner-panel {
         padding-left: 18px;
         padding-right: 18px;

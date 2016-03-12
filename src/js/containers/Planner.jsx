@@ -25,8 +25,8 @@ class Planner extends React.Component {
                     {isAddEventFormVisible
                         ? <AddEvent onEventAdd={e => dispatch(addEvent(e))} />
                         : null}
+                    <EventList events={events}/>
                 </div>
-                <EventList events={events}/>
             </div>
         );
     }
