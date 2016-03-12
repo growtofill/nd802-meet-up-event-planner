@@ -8,10 +8,10 @@ Build with React, Redux, Moment.js for date manipulation and Google Maps API.
 Node.js and NPM are required.
 ```
 npm install
-npm build
+npm run build
 ```
 
 Then `dist` folder must be served on `localhost:8000` (the port matters for Google Maps to work). NPM script that uses Python's SimpleHTTPSever mode is available:
 ```
-npm server
+npm run server
 ```
