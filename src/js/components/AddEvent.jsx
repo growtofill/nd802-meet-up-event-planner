@@ -32,7 +32,6 @@ export default class AddEvent extends Component {
                 <Field ref="guests" label="Guest list" type="textarea">
                     <small>New-line separated.</small>
                 </Field>
-                <Field ref="host" label="Host"/>
                 <Field
                     ref="location"
                     label="Location"
