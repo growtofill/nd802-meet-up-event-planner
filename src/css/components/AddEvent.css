@@ -19,4 +19,8 @@
     .AddEvent {
         position: static;
     }
+    .AddEvent-button {
+        display: block;
+        margin-left: auto;
+    }
 }
